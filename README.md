@@ -3,7 +3,7 @@
 Estructura de Proyecto Taller de Desarrollo Web - 2025
 Titulo del proyecto: pagina web cafe 505
 autores: Griffi y De la Peña
-
+LINK: https://ucc-tallerdesarrolloweb.github.io/proyecto2025-griffi-de-la-pena/
 ## Requisitos del Primer Parcial
 
 ### Sobre el Sketch
@@ -33,9 +33,9 @@ Tener en cuenta:
 
 - [ ] El proyecto debe estar subido al repositorio adecuado "Proyecto2025-ApellidoAlumno1-ApellidoAlumno2"
 - [x] Modificar el Readme.MD y colocar información del proyecto/página (mínimamente: título del proyecto, autores con nombre y apellido, link de gh-pages, contenido de la página, listado de tecnologías usadas, etc)
-- [ ] En el **readme.md** se debe emplear Markdown y aplicar negrita, titulo de orden 1, 2 y 3, link, items, tabla, index a cada sección
-- [ ] El código debe estar pusheado en el repositorio (emplear gh-pages ó publicar la página desde el main), y no debe haber diferencias entre **main** y **gh-pages** (verificar de realizar el Merge).
-- [ ] Publicar la Web empleando GitHubPages
+- [X] En el **readme.md** se debe emplear Markdown y aplicar negrita, titulo de orden 1, 2 y 3, link, items, tabla, index a cada sección
+- [X] El código debe estar pusheado en el repositorio (emplear gh-pages ó publicar la página desde el main), y no debe haber diferencias entre **main** y **gh-pages** (verificar de realizar el Merge).
+- [X] Publicar la Web empleando GitHubPages
 - [x] El repositorio no debe contener archivos innecesarios (no debe contener .idea o .vsc ni .DS_Store, en todo caso emplear **.gitignore**)
 
 ### Sobre el Proyecto General
@@ -50,68 +50,68 @@ Tener en cuenta:
 - [x] Emplear alguna fuente de google fonts o subir al proyecto alguna fuente externa
 - [x] Debe haber navegación entre todas las páginas
 - [x] No debe haber errores de ortografía en el contenido visual
-- [ ] "Lorem ipsum" es sólo válido para los prototipos, NO para la página
+- [X] "Lorem ipsum" es sólo válido para los prototipos, NO para la página
 
 ### Sobre el HTML
 
 - [x] Todas las etiquetas deben estar en minúscula
 - [x] Poner comillas a todos los atributos
-- [ ] Title debe contener el título de la página
-- [ ] En el `<head></head>` incluir las etiquetas `<meta>` detallando: autor, descripcion y palabras clave
-- [ ] Emplear al menos 3 etiquetas semánticas diferentes (header, nav, aside, main, section, article, footer)
-- [ ] Emplear `<header></header>`. En el contenido de la cabecera debe haber un título `<h1></h1>`, puede tener color de fondo, algún logotipo, etc.
-- [ ] Debe haber por lo menos una etiqueta `<img>` en la página.
-- [ ] La estructura de la página debe estar definida con `<div></div>`
-- [ ] Debe contener al menos 3 elementos de tipo `<input>` o `<select>` ó `<button>` que le permitan al usuario ingresar valores para poder realizar un cálculo de un ejercicio.
-- [ ] Emplear el atributo [**placeholder**](U2_HTML_avanzado.html#/19) (mínimamente en 1 input)
-- [ ] Emplear el atributo **size** para que el tamaño de los inputs sea prolijo
-- [ ] Emplear el atributo **maxlength** para que el usurario no pueda ingresar valores "muy grandes"
-- [ ] No espaciar con excesivos `<br>`. Utilizar márgenes, paddings, etc.
-- [ ] La anidación de etiquetas HTML debe ser correcta.
-- [ ] No utilizar etiquetas deprecadas.
-- [ ] Todas las etiquetas deben estar correctamente cerradas
-- [ ] Los ids de los elementos deben ser unívocos
+- [X] Title debe contener el título de la página
+- [X] En el `<head></head>` incluir las etiquetas `<meta>` detallando: autor, descripcion y palabras clave
+- [X] Emplear al menos 3 etiquetas semánticas diferentes (header, nav, aside, main, section, article, footer)
+- [X] Emplear `<header></header>`. En el contenido de la cabecera debe haber un título `<h1></h1>`, puede tener color de fondo, algún logotipo, etc.
+- [X] Debe haber por lo menos una etiqueta `<img>` en la página.
+- [X] La estructura de la página debe estar definida con `<div></div>`
+- [X] Debe contener al menos 3 elementos de tipo `<input>` o `<select>` ó `<button>` que le permitan al usuario ingresar valores para poder realizar un cálculo de un ejercicio.
+- [X] Emplear el atributo [**placeholder**](U2_HTML_avanzado.html#/19) (mínimamente en 1 input)
+- [X] Emplear el atributo **size** para que el tamaño de los inputs sea prolijo
+- [X] Emplear el atributo **maxlength** para que el usurario no pueda ingresar valores "muy grandes"
+- [X] No espaciar con excesivos `<br>`. Utilizar márgenes, paddings, etc.
+- [X] La anidación de etiquetas HTML debe ser correcta.
+- [X] No utilizar etiquetas deprecadas.
+- [X] Todas las etiquetas deben estar correctamente cerradas
+- [X] Los ids de los elementos deben ser unívocos
 
 ### Sobre las imágenes
 
-- [ ] Debe contener por lo menos una etiqueta `<img>` en la página.
-- [ ] Todas las imágenes deben ser incluidas en el repositorio dentro de una carpeta llamada **imagenes** (salvo que sean demasiado pesadas. En ese caso, se puede emplear un servidor externo).
-- [ ] No se deben subir videos en el repositorio (excepto que sean MUY livianos).
-- [ ] Toda imagen debe tener su atributo alt
-- [ ] Las imágenes deben poseer un nombre representativo
+- [X] Debe contener por lo menos una etiqueta `<img>` en la página.
+- [X] Todas las imágenes deben ser incluidas en el repositorio dentro de una carpeta llamada **imagenes** (salvo que sean demasiado pesadas. En ese caso, se puede emplear un servidor externo).
+- [X] No se deben subir videos en el repositorio (excepto que sean MUY livianos).
+- [X] Toda imagen debe tener su atributo alt
+- [X] Las imágenes deben poseer un nombre representativo
 
 ### Sobre el CSS
 
-- [ ] El estilo de los elementos debe establecerse en un archivo CSS (prohibido poner el atributo style a los elementos o emplear estilos incrustados).
-- [ ] El CSS debe contar mínimo con un tipo de cada forma (por Tag, por ID y por clase).
-- [ ] Se debe emplear pseudoclase
-- [ ] No emplear !important
-- [ ] El diseño de la página debe ser consistente
-- [ ] En la primera etapa debe existir un único archivo CSS (se debe evitar código duplicado. Se debe aplicar re-utilización de código/estilos)
+- [X] El estilo de los elementos debe establecerse en un archivo CSS (prohibido poner el atributo style a los elementos o emplear estilos incrustados).
+- [X] El CSS debe contar mínimo con un tipo de cada forma (por Tag, por ID y por clase).
+- [X] Se debe emplear pseudoclase
+- [X] No emplear !important
+- [X] El diseño de la página debe ser consistente
+- [X] En la primera etapa debe existir un único archivo CSS (se debe evitar código duplicado. Se debe aplicar re-utilización de código/estilos)
 
 ### Sobre Accesibilidad:
 
-- [ ] Toda imagen debe tener su etiqueta alt
-- [ ] Todo `<input>` o `<select>` debe tener su `<label>`
-- [ ] Los labels deben contener el atributo **for** (el for debe contener el id del input al cual se referencia)
-- [ ] Si hay una tabla en la página, debe contener `<caption></caption>`
+- [X] Toda imagen debe tener su etiqueta alt
+- [X] Todo `<input>` o `<select>` debe tener su `<label>`
+- [X] Los labels deben contener el atributo **for** (el for debe contener el id del input al cual se referencia)
+- [X] Si hay una tabla en la página, debe contener `<caption></caption>`
 
 ### Sobre la funcionalidad JavaScript
 
 Se debe agregar funcionalidad Js a la página HTML+CSS desarrollada
 
-- [ ] Una función que compruebe si los valores ingresados son correctos, y si no lo son, que le indique al usuario por un alert o dialog, y que blanquee el contenido del campo.
-- [ ] Una función que calcule/muestre algo en base a los valores ingresados por el usuario en los inputs.
-- [ ] El código Js debe estar en un archivo externo
-- [ ] Se debe emplear var, let o const según corresponda para mayor eficiencia
-- [ ] No deben existir funciones innecesarias que no se llamen en ninguna sección del código
-- [ ] Las funciones deben estar escritas cómo **función flecha**
-- [ ] No debe haber errores JavaScript presentes (F12 > Consola)
-- [ ] El funcionamiento de la página debe ser consistente.
+- [X] Una función que compruebe si los valores ingresados son correctos, y si no lo son, que le indique al usuario por un alert o dialog, y que blanquee el contenido del campo.
+- [X] Una función que calcule/muestre algo en base a los valores ingresados por el usuario en los inputs.
+- [X] El código Js debe estar en un archivo externo
+- [X] Se debe emplear var, let o const según corresponda para mayor eficiencia
+- [X] No deben existir funciones innecesarias que no se llamen en ninguna sección del código
+- [X] Las funciones deben estar escritas cómo **función flecha**
+- [X] No debe haber errores JavaScript presentes (F12 > Consola)
+- [X] El funcionamiento de la página debe ser consistente.
 
 ### Sobre la documentación
 
-- [ ] TODAS las funciones javaScript deben estar comentadas adecuadamente. [JsDoc](https://jsdoc.app/about-getting-started.html)
+- [X] TODAS las funciones javaScript deben estar comentadas adecuadamente. [JsDoc](https://jsdoc.app/about-getting-started.html)
   ```/**
     * Descripción de que hace la función
     * @method Nombre de la función
@@ -205,3 +205,4 @@ const activities = [
 - [ ] No debe haber errores JavaScript presentes (F12 > Consola)
 - [ ] Debe cumplir con TODOS los requisitos del 1er y 2do Parcial (si se agrego código nuevo en Js, se debe documentar, si hay nuevos inputs de html deben contener su label, etc)
 - [ ] Incluir al menos 5 tests con Jest + React Testing Library (ejemplo: que un botón renderice un texto esperado).
+
