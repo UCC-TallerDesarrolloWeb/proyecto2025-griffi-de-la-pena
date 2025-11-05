@@ -56,14 +56,22 @@ const renderCarrito = () => {
   const ul = document.getElementById("productoscarrito");
   const totalEl = document.getElementById("total");
   const empty = document.getElementById("carritovacio");
+  const bloquecarrito = document.getElementById("carrito");
+
 
   ul.innerHTML = "";
   if (carrito.length === 0) {
     empty.style.display = "block";
     totalEl.textContent = "0";
+    bloquecarrito.style.display = "none";
+
     return;
   }
   empty.style.display = "none";
+  bloquecarrito.style.display = "block";
+
+
+
 
   let total = 0;
   carrito.forEach((item, i) => {
