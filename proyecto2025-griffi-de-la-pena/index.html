@@ -31,6 +31,7 @@
     <div class="portada" role="img" aria-label="Imagen del café"></div>
 
     <main class="contenido principal">
+
       <section class="seccion">
         <h2>Buscar producto</h2>
         <form id="formularioparabuscar" autocomplete="off">
@@ -54,6 +55,7 @@
         </ul>
       </nav>
 
+      <!-- BEBIDAS FRÍAS -->
       <section id="bebidas-frias" class="seccion">
         <h2>Bebidas frías</h2>
 
@@ -98,6 +100,7 @@
         </article>
       </section>
 
+      <!-- BEBIDAS CALIENTES -->
       <section id="bebidas-calientes" class="seccion">
         <h2>Bebidas calientes</h2>
 
@@ -142,6 +145,7 @@
         </article>
       </section>
 
+      <!-- EN TAZÓN -->
       <section id="en-tazon" class="seccion">
         <h2>En tazón</h2>
 
@@ -155,7 +159,6 @@
           </div>
         </article>
 
-
         <article class="producto">
           <img src="imagenes/cafecaliente.jpg" alt="Chocolate en tazón" width="120" height="120">
           <div>
@@ -165,8 +168,9 @@
             <button class="agregar" data-nombre="Chocolate en tazón" data-precio="2400">Agregar</button>
           </div>
         </article>
+      </section>
 
-
+      <!-- DULCE BUDINES -->
       <section id="dulce-budines" class="seccion">
         <h2>Budines</h2>
 
@@ -181,16 +185,17 @@
         </article>
 
         <article class="producto">
-          <img src="imagenes/budinbanana.jpg" alt="Budín de naranja" width="120" height="120">
+          <img src="imagenes/budinbanana.jpg" alt="Budín de banana y chocolate" width="120" height="120">
           <div>
             <h3>Budín de banana y chocolate</h3>
-            <p>con chispas de chocolate.</p>
+            <p>Con chispas de chocolate.</p>
             <p class="precio" data-precio="1600">$ 1600</p>
             <button class="agregar" data-nombre="Budín de banana y chocolate" data-precio="1600">Agregar</button>
           </div>
         </article>
+      </section>
 
-        
+      <!-- DULCE GALLETAS -->
       <section id="dulce-galletas" class="seccion">
         <h2>Galletas</h2>
 
@@ -203,8 +208,9 @@
             <button class="agregar" data-nombre="Galletas chips de chocolate" data-precio="1200">Agregar</button>
           </div>
         </article>
+      </section>
 
-        
+      <!-- SALADO SANDWICHES -->
       <section id="salado-sandwiches" class="seccion">
         <h2>Sándwiches</h2>
 
@@ -217,7 +223,9 @@
             <button class="agregar" data-nombre="Tostado mixto" data-precio="2400">Agregar</button>
           </div>
         </article>
+      </section>
 
+      <!-- SALADO PANIFICADOS -->
       <section id="salado-panificados" class="seccion">
         <h2>Panificados</h2>
 
@@ -230,9 +238,8 @@
             <button class="agregar" data-nombre="Medialunas" data-precio="900">Agregar</button>
           </div>
         </article>
-
-        
       </section>
+
     </main>
 
     <aside id="carrito" class="seccion" aria-label="Mi pedido">
@@ -246,7 +253,7 @@
         <h3>Confirmar pedido</h3>
 
         <label for="nombre">Nombre</label>
-        <input id="nombre" name="nombre" type="text" placeholder="tu nombre" size="28" maxlength="40">
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" size="28" maxlength="40">
 
         <label for="mesa">Número de mesa</label>
         <input id="mesa" name="mesa" type="number" min="1" placeholder="Ejemplo: 12" size="8" maxlength="3">
