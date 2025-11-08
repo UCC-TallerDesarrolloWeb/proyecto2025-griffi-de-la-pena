@@ -29,6 +29,9 @@ const calcularTotal = (precio, cantidad, descuento) => {
     return Math.max(0, Math.round(sub - desc));
 };
 
+/** @type {{nombre: string, precio: number, cantidad: number}[]} */
+const carrito = [];
+
 /**
  * Agrega un producto al carrito; si ya existe, suma cantidades.
  * @method agregarAlCarrito
@@ -78,12 +81,9 @@ const renderCarrito = () => {
         totalEl.textContent = String(total);
     }
 
-    // Actualiza visibilidad de botones y formulario
     actualizarCarritoVisible();
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 };
-
-/** @type {{nombre: string, precio: number, cantidad: number}[]} */
-const carrito = [];
 
 /**
  * Muestra u oculta los botones y el formulario del pedido
@@ -116,14 +116,8 @@ const actualizarCarritoVisible = () => {
  * @returns {void}
  */
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".agregar").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const nombre = btn.getAttribute("data-nombre");
-            const precio = Number(btn.getAttribute("data-precio"));
-            agregarAlCarrito(nombre, precio, 1);
-        });
-    });
 
+    /** @function clickCarrito - Maneja eliminación individual de productos. */
     document.getElementById("carrito").addEventListener("click", (e) => {
         const target = e.target;
         if (target.classList.contains("btn-borrar")) {
@@ -133,54 +127,121 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    document.getElementById("vaciar").addEventListener("click", () => {
-        carrito.length = 0;
-        renderCarrito();
-    });
 
-    const formBuscar = document.getElementById("formularioparabuscar");
-    const inputBuscar = document.getElementById("buscar");
-    formBuscar.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const q = (inputBuscar.value || "").trim().toLowerCase();
-        if (!q) { alert("Escribí el nombre de un producto para buscar."); return; }
-        const productos = Array.from(document.querySelectorAll(".producto h3"));
-        const match = productos.find(h3 => h3.textContent.toLowerCase().includes(q));
-        if (match) {
-            match.closest(".producto").scrollIntoView({ behavior: "smooth", block: "center" });
-            match.closest(".producto").style.outline = "2px solid #9a5534";
-            setTimeout(() => { match.closest(".producto").style.outline = ""; }, 1200);
-        } else {
-            alert("No se encontraron productos con ese nombre.");
-        }
-        formBuscar.reset();
-    });
-
+    /** @function clickConfirmar - Valida y confirma el pedido. */
     const formPedido = document.getElementById("form-pedido");
     const inpNombre = document.getElementById("nombre");
     const inpMesa = document.getElementById("mesa");
     const selPago = document.getElementById("pago");
 
-    document.getElementById("confirmar").addEventListener("click", () => {
-        if (carrito.length === 0) { alert("Tu carrito está vacío."); return; }
-        const nombre = (inpNombre.value || "").trim();
-        if (!nombre) { alert("Ingresá tu nombre."); inpNombre.focus(); return; }
-        if (!validarEnteroNoNegativo(inpMesa) || Number(inpMesa.value) < 1) { alert("Ingresá un número de mesa válido (>=1)."); inpMesa.focus(); return; }
-        if (!selPago.value) { alert("Elegí un método de pago."); selPago.focus(); return; }
-
-        let resumen = "Pedido confirmado:\n";
-        carrito.forEach(item => { resumen += `• ${item.nombre} x${item.cantidad} = $${item.precio * item.cantidad}\n`; });
-        resumen += `Total: $${document.getElementById("total").textContent}\n`;
-        resumen += `Nombre: ${nombre}\nMesa: ${inpMesa.value}\nPago: ${selPago.options[selPago.selectedIndex].text}`;
-
-        alert(resumen);
-        alert("En unos momentos alguien se acercará a su mesa a cobrarle y posteriormente le traerán el pedido.");
-
-        carrito.length = 0;
-        renderCarrito();
-        formPedido.reset();
-    });
+    const guardado = localStorage.getItem("carrito");
+    if (guardado) {
+        try {
+            const datos = JSON.parse(guardado);
+            if (Array.isArray(datos)) carrito.push(...datos);
+        } catch {
+            localStorage.removeItem("carrito");
+        }
+    }
 
     renderCarrito();
-    actualizarCarritoVisible(); 
+    actualizarCarritoVisible();
 });
+
+/**
+ * Handler para agregar un producto desde un botón.
+ * @method onAgregar
+ * @param {string} nombre - Nombre del producto
+ * @param {number} precio - Precio unitario
+ * @return {void}
+ */
+window.onAgregar = (nombre, precio) => {
+    agregarAlCarrito(nombre, Number(precio), 1);
+    resaltarProducto(nombre);
+};
+
+/**
+ * Resalta visualmente el producto agregado en el catálogo.
+ * @method resaltarProducto
+ * @param {string} nombre - Nombre del producto agregado
+ * @returns {void}
+ */
+const resaltarProducto = (nombre) => {
+    const productos = document.querySelectorAll(".producto h3");
+    const match = Array.from(productos).find(
+        h3 => h3.textContent.trim().toLowerCase() === nombre.toLowerCase()
+    );
+    if (match) {
+        const card = match.closest(".producto");
+        card.classList.add("producto-destacado");
+        setTimeout(() => card.classList.add("fade"), 200);
+        setTimeout(() => {
+            card.classList.remove("producto-destacado", "fade");
+        }, 800);
+    }
+};
+
+/**
+ * Handler de envío del buscador (form).
+ * @method onBuscarSubmit
+ * @param {Event} e - Evento submit del formulario
+ * @return {void}
+ */
+window.onBuscarSubmit = (e) => {
+    e.preventDefault();
+    const inputBuscar = document.getElementById("buscar");
+    const q = (inputBuscar.value || "").trim().toLowerCase();
+    if (!q) { alert("Escribí el nombre de un producto para buscar."); inputBuscar.focus(); return; }
+    const productos = Array.from(document.querySelectorAll(".producto h3"));
+    const match = productos.find(h3 => h3.textContent.toLowerCase().includes(q));
+    if (match) {
+        match.closest(".producto").scrollIntoView({ behavior: "smooth", block: "center" });
+        match.closest(".producto").style.outline = "2px solid #9a5534";
+        setTimeout(() => { match.closest(".producto").style.outline = ""; }, 1200);
+    } else {
+        alert("No se encontraron productos con ese nombre.");
+    }
+    e.target.reset();
+};
+
+/**
+ * Vacía el carrito desde el botón.
+ * @method onVaciar
+ * @return {void}
+ */
+window.onVaciar = () => {
+    carrito.length = 0;
+    renderCarrito();
+    localStorage.removeItem("carrito");
+};
+
+/**
+ * Confirma el pedido desde el botón.
+ * @method onConfirmar
+ * @return {void}
+ */
+window.onConfirmar = () => {
+    const formPedido = document.getElementById("form-pedido");
+    const inpNombre = document.getElementById("nombre");
+    const inpMesa = document.getElementById("mesa");
+    const selPago = document.getElementById("pago");
+
+    if (carrito.length === 0) { alert("Tu carrito está vacío."); return; }
+    const nombre = (inpNombre.value || "").trim();
+    if (!nombre) { alert("Ingresá tu nombre."); inpNombre.focus(); return; }
+    if (!validarEnteroNoNegativo(inpMesa) || Number(inpMesa.value) < 1) { alert("Ingresá un número de mesa válido (>=1)."); inpMesa.focus(); return; }
+    if (!selPago.value) { alert("Elegí un método de pago."); selPago.focus(); return; }
+
+    let resumen = "Pedido confirmado:\n";
+    carrito.forEach(item => { resumen += `${item.nombre} x${item.cantidad} = $${item.precio * item.cantidad}\n`; });
+    resumen += `Total: $${document.getElementById("total").textContent}\n`;
+    resumen += `Nombre: ${nombre}\nMesa: ${inpMesa.value}\nPago: ${selPago.options[selPago.selectedIndex].text}`;
+
+    alert(resumen);
+    alert("En unos momentos alguien se acercará a su mesa a cobrarle y posteriormente le traerán el pedido.");
+
+    carrito.length = 0;
+    renderCarrito();
+    localStorage.removeItem("carrito");
+    formPedido.reset();
+};
