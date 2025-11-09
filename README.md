@@ -123,6 +123,39 @@ Proyecto2025-Griffi-DeLaPena
 
 ---
 
+## Tecnologías usadas
+
+**React 18 + Vite 7** → entorno de desarrollo moderno y rápido.  
+**React Router DOM v6** → navegación entre páginas sin recargar.  
+**React Hooks** → manejo de estados, efectos y navegación.  
+**SASS / SCSS** → estilos organizados y diseño responsive.  
+**Fetch API + async/await** → lectura del catálogo desde JSON local.  
+**localStorage** → guarda el carrito y mantiene los productos al recargar.  
+**Git & GitHub** → control de versiones y publicación del proyecto.  
+**Figma** → diseño de la estructura y wireframes.  
+**Google Fonts** → tipografía Quicksand.  
+
+---
+## Pasos para iniciar el proyecto
+
+1. **Clonar el repositorio**  
+
+   git clone https://github.com/UCC-TallerDesarrolloWeb/proyecto2025-griffi-de-la-pena.git
+
+2. **Entrar a la carpeta del proyecto**
+   
+   cd proyecto2025-griffi-de-la-pena
+
+3. **Instalar las dependencias**
+   
+   npm install
+
+4. **Iniciar el servidor de desarrollo**
+
+   npm run dev  --> abrir el URL
+
+---
+
 ## Requisitos del Primer Parcial
 
 ### Sobre el Sketch
@@ -324,4 +357,5 @@ const activities = [
 - [ ] No debe haber errores JavaScript presentes (F12 > Consola)
 - [ ] Debe cumplir con TODOS los requisitos del 1er y 2do Parcial (si se agrego código nuevo en Js, se debe documentar, si hay nuevos inputs de html deben contener su label, etc)
 - [ ] Incluir al menos 5 tests con Jest + React Testing Library (ejemplo: que un botón renderice un texto esperado).
+
 
