@@ -359,3 +359,4 @@ const activities = [
 - [ ] Incluir al menos 5 tests con Jest + React Testing Library (ejemplo: que un botón renderice un texto esperado).
 
 
+
