@@ -1,0 +1,19 @@
+[
+  { "id": "latte-frio",      "nombre": "Latte frío clásico",           "precio": 2500, "categoria": "Bebidas frías",    "img": "/lattefrio.jpg" },
+  { "id": "limonada",        "nombre": "Limonada clásica",             "precio": 1800, "categoria": "Bebidas frías",    "img": "/limonada.jpg" },
+  { "id": "cold-brew",       "nombre": "Cold Brew",                    "precio": 2800, "categoria": "Bebidas frías",    "img": "/coldbrew.jpg" },
+  { "id": "frappe",          "nombre": "Frappé de café",               "precio": 3000, "categoria": "Bebidas frías",    "img": "/frappe.jpg" },
+
+  { "id": "expresso",        "nombre": "Expresso",                     "precio": 1500, "categoria": "Bebidas calientes","img": "/expresso.jpg" },
+  { "id": "capuchino",       "nombre": "Capuchino",                    "precio": 2200, "categoria": "Bebidas calientes","img": "/capuchino.jpg" },
+  { "id": "latte",           "nombre": "Latte",                        "precio": 2300, "categoria": "Bebidas calientes","img": "/lattecaliente.jpg" },
+  { "id": "te-negro",        "nombre": "Té negro",                     "precio": 1200, "categoria": "Bebidas calientes","img": "/tenegro.jpg" },
+
+  { "id": "budin-limon",     "nombre": "Budín de limón",               "precio": 1600, "categoria": "Budines",          "img": "/budinlimon.jpg" },
+  { "id": "budin-banana",    "nombre": "Budín de banana y chocolate", "precio": 1600, "categoria": "Budines",          "img": "/budinbanana.jpg" },
+
+  { "id": "cookie-chips",    "nombre": "Cookie con chips de chocolate","precio": 900,  "categoria": "Cookies",          "img": "/cookiechips.jpg" },
+  { "id": "sandwich-jyq",    "nombre": "Sándwich de jamón y queso",    "precio": 1900, "categoria": "Salados",          "img": "/sandwichjyq.jpg" },
+  { "id": "yogurt-granola",  "nombre": "Yogurt con granola y miel",    "precio": 2100, "categoria": "Desayunos",        "img": "/yogurtgranola.jpg" },
+  { "id": "medialuna",       "nombre": "Medialuna de manteca",         "precio": 800,  "categoria": "Desayunos",        "img": "/medialuna.jpg" }
+]
