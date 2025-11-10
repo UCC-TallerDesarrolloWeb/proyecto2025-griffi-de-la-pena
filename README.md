@@ -6,7 +6,7 @@
 **Materia:** Taller de Desarrollo Web – Universidad Católica de Córdoba (UCC)  
 **Año:** 2025  
 **Repositorio:** [Proyecto2025-Griffi-DeLaPena](https://github.com/malenagriffi/Proyecto2025-Griffi-DeLaPena)  
-**GitHub Pages:** [https://malenagriffi.github.io/Proyecto2025-Griffi-DeLaPena/](https://malenagriffi.github.io/Proyecto2025-Griffi-DeLaPena/)
+**GitHub Pages:** https://ucc-tallerdesarrolloweb.github.io/proyecto2025-griffi-de-la-pena/
 
 ---
 
@@ -357,6 +357,7 @@ const activities = [
 - [ ] No debe haber errores JavaScript presentes (F12 > Consola)
 - [ ] Debe cumplir con TODOS los requisitos del 1er y 2do Parcial (si se agrego código nuevo en Js, se debe documentar, si hay nuevos inputs de html deben contener su label, etc)
 - [ ] Incluir al menos 5 tests con Jest + React Testing Library (ejemplo: que un botón renderice un texto esperado).
+
 
 
 
