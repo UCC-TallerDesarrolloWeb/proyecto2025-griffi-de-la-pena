@@ -24,7 +24,8 @@ function normalizeCategory(raw) {
 
 export default function Inicio() {
     const [productos, setProductos] = useState([]);
-    const [q, setQ] = useState("");
+    const [q, setQ] = useState("");        // búsqueda aplicada
+    const [qInput, setQInput] = useState(""); // texto del input (sin buscar aún)
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
@@ -49,6 +50,7 @@ export default function Inicio() {
         })();
     }, []);
 
+    // Productos filtrados: ahora solo usan q (la búsqueda aplicada)
     const productosFiltrados = useMemo(() => {
         const term = q.trim().toLowerCase();
         if (!term) return productos;
@@ -58,7 +60,6 @@ export default function Inicio() {
                 (p.categoria || "").toLowerCase().includes(term)
         );
     }, [productos, q]);
-
 
     const porCategoria = useMemo(() => {
         const map = new Map();
@@ -95,17 +96,19 @@ export default function Inicio() {
                     <label htmlFor="buscar" className="sr-only">
                         Nombre del producto
                     </label>
+
                     <input
                         id="buscar"
                         type="text"
-                        value={q}
-                        onChange={(e) => setQ(e.target.value)}
+                        value={qInput}
+                        onChange={(e) => setQInput(e.target.value)}
                         placeholder="Buscar por nombre o categoría"
                         aria-label="Buscar por nombre o categoría"
                     />
+
                     <button
                         className="agregar"
-                        onClick={() => document.getElementById("buscar")?.focus()}
+                        onClick={() => setQ(qInput)}   // AHORA SÍ BUSCA
                     >
                         Buscar
                     </button>
@@ -115,7 +118,14 @@ export default function Inicio() {
                     <ul>
                         {CATEGORIAS_ORDEN.map((cat) => (
                             <li key={cat}>
-                                <button onClick={() => setQ(cat)} className="chip" type="button">
+                                <button
+                                    onClick={() => {
+                                        setQ(cat);
+                                        setQInput(cat);
+                                    }}
+                                    className="chip"
+                                    type="button"
+                                >
                                     {cat}
                                 </button>
                             </li>
