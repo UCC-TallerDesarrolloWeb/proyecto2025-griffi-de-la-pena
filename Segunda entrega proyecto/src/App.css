@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.carrito-acciones {
+  margin-top: 8px;
+}
+
+.carrito-separador {
+  margin: 1rem 0;
+  border-color: #eee;
+}

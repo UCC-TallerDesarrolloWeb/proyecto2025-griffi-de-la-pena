@@ -66,11 +66,11 @@ export default function Carrito() {
                         Total: <strong id="total">$ {total.toLocaleString("es-AR")}</strong>
                     </output>
 
-                    <div style={{ marginTop: 8 }}>
+                    <div className="carrito-acciones">
                         <Button variant="outline" onClick={clear} id="vaciar">Vaciar</Button>
                     </div>
 
-                    <hr style={{ margin: "1rem 0", borderColor: "#eee" }} />
+                    <hr className="carrito-separador" />
 
                     <form className="pedido-form" onSubmit={onSubmit}>
                         <h4>Confirmar pedido</h4>
@@ -85,7 +85,9 @@ export default function Carrito() {
                                 aria-invalid={!!errors.nombre}
                                 aria-describedby="err-nombre"
                             />
-                            <div id="err-nombre" className="err" aria-live="polite">{errors.nombre || ""}</div>
+                            <div id="err-nombre" className="err" aria-live="polite">
+                                {errors.nombre || ""}
+                            </div>
                         </label>
 
                         <label className="lbl">
@@ -98,7 +100,9 @@ export default function Carrito() {
                                 aria-invalid={!!errors.mesa}
                                 aria-describedby="err-mesa"
                             />
-                            <div id="err-mesa" className="err" aria-live="polite">{errors.mesa || ""}</div>
+                            <div id="err-mesa" className="err" aria-live="polite">
+                                {errors.mesa || ""}
+                            </div>
                         </label>
 
                         <label className="lbl">
@@ -115,10 +119,16 @@ export default function Carrito() {
                                 <option value="credito">Crédito</option>
                                 <option value="qr">QR</option>
                             </select>
-                            <div id="err-pago" className="err" aria-live="polite">{errors.pago || ""}</div>
+                            <div id="err-pago" className="err" aria-live="polite">
+                                {errors.pago || ""}
+                            </div>
                         </label>
 
-                        {errors.items && <p className="err" aria-live="polite">{errors.items}</p>}
+                        {errors.items && (
+                            <p className="err" aria-live="polite">
+                                {errors.items}
+                            </p>
+                        )}
 
                         <Button type="submit">Confirmar pedido</Button>
 
