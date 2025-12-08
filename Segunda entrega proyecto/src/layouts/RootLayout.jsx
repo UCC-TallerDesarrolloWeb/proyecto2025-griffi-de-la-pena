@@ -1,19 +1,19 @@
 import Header from "@/components/Header.jsx";
-import Nav from "@/components/Nav.jsx";
-import Footer from "@/components/Footer.jsx";
 import Carrito from "@/components/Carrito.jsx";
+import Footer from "@/components/Footer.jsx";
 import { Outlet } from "react-router-dom";
 
 export default function RootLayout() {
     return (
         <>
-            <Header><Nav /></Header>
+            <Header />
 
-            <div className="layout">
-                <main className="content">
+            <div id="pagina">
+                <main className="contenido">
                     <Outlet />
                 </main>
-                <aside className="sidebar">
+
+                <aside id="carrito">
                     <Carrito />
                 </aside>
             </div>

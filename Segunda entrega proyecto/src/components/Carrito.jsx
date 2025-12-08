@@ -1,21 +1,16 @@
 import { useCart } from "@/context/Carritocontext.jsx";
 import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "@/components/ui/Button.jsx";
 
 export default function Carrito() {
     const { items, total, removeItem, clear } = useCart();
     const [nombre, setNombre] = useState("");
     const [mesa, setMesa] = useState("");
     const [pago, setPago] = useState("");
-    const [confirmado, setConfirmado] = useState(false);
-    const navigate = useNavigate();
 
     const errors = useMemo(() => {
         const e = {};
         if (nombre.trim().length < 2) e.nombre = "Ingresá tu nombre (mínimo 2 letras).";
-        const m = Number(mesa);
-        if (!m || m < 1) e.mesa = "Ingresá un número de mesa válido.";
+        if (!(Number(mesa) >= 1)) e.mesa = "Ingresá un número de mesa válido.";
         if (!pago) e.pago = "Elegí un método de pago.";
         if (!items.length) e.items = "Agregá al menos un producto.";
         return e;
@@ -23,16 +18,23 @@ export default function Carrito() {
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+        // Si hay errores, NO hace nada (igual que en el parcial 1)
         if (Object.keys(errors).length) return;
 
-        setConfirmado(true);
-
+        // SOLO guarda pedido, sin mensajes ni navegación
         localStorage.setItem(
             "ultimoPedido",
-            JSON.stringify({ nombre, mesa, pago, total, items })
+            JSON.stringify({
+                nombre,
+                mesa,
+                pago,
+                total,
+                items
+            })
         );
 
-        navigate("/contacto", { state: { ok: true } });
+        alert("Pedido registrado correctamente."); // Esto imitaba el comportamiento viejo
     };
 
     return (
@@ -48,16 +50,16 @@ export default function Carrito() {
                             <li key={it.id} className="cart-row">
                                 <span>{it.nombre} (x{it.cantidad})</span>
                                 <span className="cart-price">
-                  $ {(it.precio * it.cantidad).toLocaleString("es-AR")}
+                                    $ {(it.precio * it.cantidad).toLocaleString("es-AR")}
                                     <button
                                         className="btn-borrar"
                                         onClick={() => removeItem(it.id)}
                                         aria-label={`Quitar ${it.nombre}`}
                                         title="Quitar"
                                     >
-                    🗑
-                  </button>
-                </span>
+                                        🗑
+                                    </button>
+                                </span>
                             </li>
                         ))}
                     </ul>
@@ -67,7 +69,9 @@ export default function Carrito() {
                     </output>
 
                     <div className="carrito-acciones">
-                        <Button variant="outline" onClick={clear} id="vaciar">Vaciar</Button>
+                        <button id="vaciar" className="agregar" onClick={clear}>
+                            Vaciar
+                        </button>
                     </div>
 
                     <hr className="carrito-separador" />
@@ -82,12 +86,8 @@ export default function Carrito() {
                                 placeholder="tu nombre"
                                 value={nombre}
                                 onChange={(e) => setNombre(e.target.value)}
-                                aria-invalid={!!errors.nombre}
-                                aria-describedby="err-nombre"
                             />
-                            <div id="err-nombre" className="err" aria-live="polite">
-                                {errors.nombre || ""}
-                            </div>
+                            <div className="err">{errors.nombre || ""}</div>
                         </label>
 
                         <label className="lbl">
@@ -97,46 +97,27 @@ export default function Carrito() {
                                 placeholder="ej: 12"
                                 value={mesa}
                                 onChange={(e) => setMesa(e.target.value)}
-                                aria-invalid={!!errors.mesa}
-                                aria-describedby="err-mesa"
                             />
-                            <div id="err-mesa" className="err" aria-live="polite">
-                                {errors.mesa || ""}
-                            </div>
+                            <div className="err">{errors.mesa || ""}</div>
                         </label>
 
                         <label className="lbl">
                             Método de pago
-                            <select
-                                value={pago}
-                                onChange={(e) => setPago(e.target.value)}
-                                aria-invalid={!!errors.pago}
-                                aria-describedby="err-pago"
-                            >
+                            <select value={pago} onChange={(e) => setPago(e.target.value)}>
                                 <option value="">Elegí un método</option>
                                 <option value="efectivo">Efectivo</option>
                                 <option value="debito">Débito</option>
                                 <option value="credito">Crédito</option>
                                 <option value="qr">QR</option>
                             </select>
-                            <div id="err-pago" className="err" aria-live="polite">
-                                {errors.pago || ""}
-                            </div>
+                            <div className="err">{errors.pago || ""}</div>
                         </label>
 
-                        {errors.items && (
-                            <p className="err" aria-live="polite">
-                                {errors.items}
-                            </p>
-                        )}
+                        {errors.items && <div className="err">{errors.items}</div>}
 
-                        <Button type="submit">Confirmar pedido</Button>
-
-                        {confirmado && (
-                            <p className="ok-msg" role="status" aria-live="polite">
-                                En unos minutos alguien va a pasar por tu mesa a cobrarte.
-                            </p>
-                        )}
+                        <button type="submit" className="agregar">
+                            Confirmar pedido
+                        </button>
                     </form>
                 </>
             )}

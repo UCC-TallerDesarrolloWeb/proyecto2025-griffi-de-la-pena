@@ -1,0 +1,130 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "nombre": "Latte frío clásico",
+      "descripcion": "Shot de café con leche fría.",
+      "categoria": "Bebidas frías",
+      "precio": 2500,
+      "img": "/lattefrio.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Limonada clásica",
+      "descripcion": "Limón, agua y azúcar.",
+      "categoria": "Bebidas frías",
+      "precio": 1800,
+      "img": "/limonada.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Cold Brew",
+      "descripcion": "Infusión en frío, intenso y refrescante.",
+      "categoria": "Bebidas frías",
+      "precio": 2800,
+      "img": "/coldbrew.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Frappé de café",
+      "descripcion": "Café, hielo y leche, batido.",
+      "categoria": "Bebidas frías",
+      "precio": 3000,
+      "img": "/frappe.jpg"
+    },
+
+    {
+      "id": 5,
+      "nombre": "Expresso",
+      "descripcion": "Shot de café.",
+      "categoria": "Bebidas calientes",
+      "precio": 1500,
+      "img": "/expresso.jpg"
+    },
+    {
+      "id": 6,
+      "nombre": "Capuchino",
+      "descripcion": "Café, leche y espuma.",
+      "categoria": "Bebidas calientes",
+      "precio": 2200,
+      "img": "/capuchino.jpg"
+    },
+    {
+      "id": 7,
+      "nombre": "Latte",
+      "descripcion": "Café con abundante leche.",
+      "categoria": "Bebidas calientes",
+      "precio": 2300,
+      "img": "/lattecaliente.jpg"
+    },
+    {
+      "id": 8,
+      "nombre": "Té negro",
+      "descripcion": "Clásico, para toda hora.",
+      "categoria": "Bebidas calientes",
+      "precio": 1200,
+      "img": "/tenegro.jpg"
+    },
+
+    {
+      "id": 9,
+      "nombre": "Yogur con granola y frutas",
+      "descripcion": "Fresco y nutritivo.",
+      "categoria": "En tazón",
+      "precio": 2600,
+      "img": "/yogurtgranola.jpg"
+    },
+    {
+      "id": 10,
+      "nombre": "Chocolate en tazón",
+      "descripcion": "Bien espeso.",
+      "categoria": "En tazón",
+      "precio": 2400,
+      "img": "/chocolatetazon.jpg"
+    },
+
+    {
+      "id": 11,
+      "nombre": "Budín de limón",
+      "descripcion": "Glaseado suave.",
+      "categoria": "Budines",
+      "precio": 1600,
+      "img": "/budinlimon.jpg"
+    },
+    {
+      "id": 12,
+      "nombre": "Budín de banana y chocolate",
+      "descripcion": "Con chispas de chocolate.",
+      "categoria": "Budines",
+      "precio": 1600,
+      "img": "/budinbanana.jpg"
+    },
+
+    {
+      "id": 13,
+      "nombre": "Chips de chocolate",
+      "descripcion": "Crocantes y chocolatosas.",
+      "categoria": "Galletas",
+      "precio": 1200,
+      "img": "/cookiechips.jpg"
+    },
+
+    {
+      "id": 14,
+      "nombre": "Tostado mixto",
+      "descripcion": "Jamón y queso, pan de miga.",
+      "categoria": "Sandwichs",
+      "precio": 2400,
+      "img": "/sandwichjyq.jpg"
+    },
+
+    {
+      "id": 15,
+      "nombre": "Medialunas",
+      "descripcion": "Manteca o grasa.",
+      "categoria": "Panificadora",
+      "precio": 900,
+      "img": "/medialuna.jpg"
+    }
+  ]
+}
