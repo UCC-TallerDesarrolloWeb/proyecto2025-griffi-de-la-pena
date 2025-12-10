@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Café 505 — Inicio</title>
+    <head>
+      <meta charset="UTF-8" />
+      <title>Café 505 — Inicio</title>
 
-    <meta name="author" content="Griffi Malena y De la Peña Tomas" />
-    <meta name="description" content="Café 505: menú, pedido y contacto." />
-    <meta
-      name="keywords"
-      content="café, cafetería, menú, bebidas, budines, sándwiches"
-    />
+      <meta name="author" content="Griffi Malena y De la Peña Tomas" />
+      <meta name="description" content="Café 505: menú, pedido y contacto." /> <!--Descripcion breve-->
+      <meta
+        name="keywords" 
+        content="café, cafetería, menú, bebidas, budines, sándwiches"
+      /> <!-- palabras claves -->
 
-    <link rel="icon" href="imagenes/logo_cafe505.jpg" type="image/jpeg" />
+      <link rel="icon" href="imagenes/logo_cafe505.jpg" type="image/jpeg" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet"
+      /> <!-- Importado de google fonts -->
 
-    <link rel="stylesheet" href="css/estilos.css" />
-  </head>
+      <link rel="stylesheet" href="css/estilos.css" />
+    </head>
 
   <body>
-    <div id="pagina">
+    <div id="pagina"> <!-- agrupa contenido -->
       
-      <!-- ENCABEZADO -->
       <header class="encabezado">
         <img
           src="imagenes/logo_cafe505.jpg"
@@ -33,7 +32,7 @@
         />
         <h1 class="titulo">CAFÉ 505</h1>
 
-        <nav class="menuprincipal">
+        <nav class="menuprincipal"> <!-- menu de navegacion -->
           <ul>
             <li><a href="index.html" aria-current="page">Inicio</a></li>
             <li><a href="contacto.html">Contacto</a></li>
@@ -42,22 +41,25 @@
       </header>
 
       <!-- PORTADA -->
-      <div class="portada" role="img" aria-label="Imagen del café"></div>
+      <div class="portada" role="img" aria-label="Imagen del café"></div> <!-- Se define como clase, en el css se usa como imagen -->
 
       <!-- CONTENIDO PRINCIPAL -->
-      <main class="contenido principal">
+      <main class="contenido principal"> 
         
         <!-- BUSCADOR -->
-        <section class="seccion">
+        <section class="seccion"> 
           <h2>Buscar producto</h2>
 
+          <!-- formulario para busqueda  -->
           <form
             id="formularioparabuscar"
             autocomplete="off"
-            onsubmit="onBuscarSubmit(event)"
-          >
-            <label for="buscar">Nombre del producto</label>
+            onsubmit="onBuscarSubmit(event)" 
+          > 
+            <label for="buscar">Nombre del producto</label> <!-- etiqueta del imput -->
 
+
+          <!-- Barra para buscar -->
             <input
               id="buscar"
               name="buscar"
@@ -92,7 +94,7 @@
             <img src="imagenes/latefrio.jpg" alt="Latte frío clásico" width="120" height="120" />
             <div>
               <h3>Latte frío clásico</h3>
-              <p>Shot de café con leche fría.</p>
+              <p>Shot de café con leche fría.</p> <!--Descripcion del producto-->
               <p class="precio" data-precio="2500">$ 2500</p>
               <button class="agregar" onclick="onAgregar('Latte frío clásico', 2500)">Agregar</button>
             </div>
@@ -272,12 +274,12 @@
       </main>
 
       <!-- CARRITO -->
-      <aside id="carrito" class="seccion" aria-label="Mi pedido">
+      <aside id="carrito" class="seccion" aria-label="Mi pedido"> <!-- Lateral derecho aside -->
         <h2>Mi pedido</h2>
 
-        <p id="carritovacio">Su carrito se encuentra vacío</p>
+        <p id="carritovacio">Su carrito se encuentra vacío</p> <!-- mensaje  -->
 
-        <ul id="productoscarrito"></ul>
+        <ul id="productoscarrito"></ul> <!-- Lista -->
 
         <p>
           <strong>Total:</strong> $ <span id="total">0</span>
@@ -288,10 +290,12 @@
           id="vaciar"
           type="button"
           onclick="onVaciar()"
-          style="display:none"
-        >
-          Vaciar carrito
+          style="display:none" 
+        ><!-- no se ve hasta q haya producto -->
+        Vaciar carrito 
         </button>
+
+        
 
         <form id="form-pedido" autocomplete="off" style="display:none">
           <h3>Confirmar pedido</h3>
@@ -301,6 +305,8 @@
 
           <label for="mesa">Número de mesa</label>
           <input id="mesa" name="mesa" type="number" min="1" placeholder="ej: 12" size="8" maxlength="3" />
+          <!-- maxlength cantidad de caracteres, size ancho visual -->
+
 
           <label for="pago">Método de pago</label>
           <select id="pago" name="pago">

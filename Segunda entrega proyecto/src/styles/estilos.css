@@ -18,8 +18,14 @@ img {
 /* Layout general */
 #pagina {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
+
+#pagina.sin-carrito {
+  grid-template-columns: 1fr; /* Se hace de 1 sola columna */
+}
+
 
 #carrito {
   margin: 0 16px 24px;

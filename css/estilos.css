@@ -1,24 +1,24 @@
 body {
-  font-family: "Poppins", system-ui, -apple-system, Arial, sans-serif;
-  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, Arial, sans-serif; /* tipografia */
+  margin: 0; /* elimina margenes */
   color: #222;
 }
 
 h1,
 h2 {
-  margin: 0 0 8px 0;
+  margin: 0 0 8px 0; /* 0 margen superior, 0 margen derecho, 8 margen inferior, 0 margen izquierdo */
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+img { /* afecta a todas las imagenes */
+  max-width: 100%; /* ancho maximo */
+  height: auto;  /* altura se ajusta automaticamente */
+  display: block; /* comportamiento de imagen como bloque*/
 }
 
 /* Layout general */
 #pagina {
   display: grid;
-  gap: 16px;
+  gap: 16px; /* 16pixeles de separacion entre elementos */
 }
 
 #carrito {
@@ -28,33 +28,33 @@ img {
 /* Encabezado */
 .encabezado {
   background: #f6f3ee;
-  padding: 12px 16px;
+  padding: 12px 16px; 
   display: grid;
-  grid-template-columns: 64px auto 1fr;
-  gap: 12px;
-  align-items: center;
+  grid-template-columns: 64px auto 1fr; /*crea 3 columnas, 64 logo, auto, espacio restante */
+  gap: 12px; 
+  align-items: center; /* Centra verticalmente elementos */
 }
 
 .logo {
-  border-radius: 50%;
+  border-radius: 50%; /* redondea borders  */
 }
 
 .titulo {
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 28px; /* tamaño de texto */
+  font-weight: 600; /* grosor */
   color: #9a5534;
 }
 
 /* Menú */
 .menuprincipal ul {
-  list-style: none;
+  list-style: none; /* saca los puntos de la lista */
   padding: 0;
   margin: 0;
   display: flex;
   gap: 12px;
 }
 
-.menuprincipal a {
+.menuprincipal a { /* aplica a todos los links que tengan a */
   text-decoration: none;
   color: #333;
   padding: 6px 10px;
@@ -66,9 +66,9 @@ img {
 .portada {
   height: 260px;
   background-image: url("../imagenes/fotodefondo.jpg");
-  background-size: cover;
-  background-position: center;
-  border-block: 1px solid #e8e4dd;
+  background-size: cover; /* cubre el area sin deformarse */
+  background-position: center; 
+  border-block: 1px solid #e8e4dd; 
 }
 
 /* Categorías */
@@ -76,9 +76,9 @@ img {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
+  display: flex; /* muestra elementos en linea <li> */
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permite que las categorías bajen a otra línea si no entran */
 }
 
 .categorias a {
@@ -95,11 +95,11 @@ img {
 .agregar:hover,
 #vaciar:hover,
 #confirmar:hover {
-  filter: brightness(0.95);
+  filter: brightness(0.95); 
 }
 
 /* Formularios */
-input:focus,
+input:focus, 
 select:focus {
   outline: 2px solid #9a5534;
 }
@@ -122,7 +122,7 @@ select:focus {
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 12px;
-  align-items: center;
+  align-items: center; /* centrar verticalmente */
   border: 1px solid #eee;
   border-radius: 10px;
   padding: 10px;
@@ -154,11 +154,11 @@ select:focus {
   margin: 4px 0 8px;
 }
 
-/* Desktop */
-@media (min-width: 980px) {
+/* Solo a pantallas grandes */
+@media (min-width: 980px) { 
   #pagina {
     grid-template-columns: 1fr 340px;
-  }
+  } 
 
   .portada {
     grid-column: 1 / -1;
@@ -204,6 +204,6 @@ output {
 }
 
 .producto-destacado.fade {
-  outline: none;
+  outline: none; 
   background-color: transparent;
-}
+} /* Reduce la animacion  */
