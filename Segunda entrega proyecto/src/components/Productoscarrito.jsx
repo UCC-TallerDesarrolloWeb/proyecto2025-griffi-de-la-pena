@@ -6,11 +6,10 @@ export default function Productoscarrito({ productos }) {
     // función addItem del contexto
     const { addItem } = useCart();
 
-    
     if (!productos?.length) return <p>No hay productos.</p>;
 
     return (
-        <div className="grid-prod">
+        <div>
 
             {/* Recorremos la lista de productos y mostramos cada uno */}
             {productos.map((p) => (
@@ -23,23 +22,26 @@ export default function Productoscarrito({ productos }) {
                         {/* Nombre */}
                         <h3>{p.nombre}</h3>
 
-                        {/* Descripción agregada */}
+                        {/* Descripción */}
                         <p className="descripcion">{p.descripcion}</p>
 
-                        {/* Precio formateado */}
-                        <p className="precio">$ {p.precio.toLocaleString("es-AR")}</p>
+                        {/* Precio */}
+                        <p className="precio">
+                            $ {p.precio.toLocaleString("es-AR")}
+                        </p>
 
                         {/* Categoría */}
-                        <small>{p.categoria}</small><br />
+                        <small>{p.categoria}</small>
+                        <br />
 
-                        {/* Botón que agrega el producto al carrito */}
+                        {/* Botón agregar */}
                         <button
                             className="agregar"
                             onClick={() =>
                                 addItem({
                                     id: p.id,
                                     nombre: p.nombre,
-                                    precio: p.precio
+                                    precio: p.precio,
                                 })
                             }
                         >

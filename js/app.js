@@ -22,19 +22,6 @@ const validarEnteroNoNegativo = (input) => {
 
 
 
-/**
- * Calcula el precio total después de aplicar un descuento.
- */
-const calcularTotal = (precio, cantidad, descuento) => {
-
-    const sub = precio * cantidad;         // subtotal sin descuento
-    const desc = sub * (descuento / 100);  // cuánto se descuenta
-
-    // Restamos el descuento y nos aseguramos que no dé negativo
-    return Math.max(0, Math.round(sub - desc));
-};
-
-
 
 /**
  * Carrito donde se van guardando los productos seleccionados.

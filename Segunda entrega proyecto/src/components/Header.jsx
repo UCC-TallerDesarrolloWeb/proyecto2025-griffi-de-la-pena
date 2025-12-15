@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Header() {
+    const navigate = useNavigate();
+
     return (
         <header className="encabezado">
             <img
@@ -20,10 +22,15 @@ export default function Header() {
                             Inicio
                         </NavLink>
                     </li>
+
                     <li>
-                        <NavLink to="/contacto">
+                        <button
+                            type="button"
+                            className="link"
+                            onClick={() => navigate("/contacto")}
+                        >
                             Contacto
-                        </NavLink>
+                        </button>
                     </li>
                 </ul>
             </nav>
