@@ -1,7 +1,7 @@
 import Header from "@/components/Header.jsx";
 import Carrito from "@/components/Carrito.jsx";
 import Footer from "@/components/Footer.jsx";
-import { Outlet, useLocation } from "react-router-dom"; // Outlet muestra la página actual y location la ruta 
+import { Outlet, useLocation } from "react-router-dom"
 
 export default function RootLayout() {
     const { pathname } = useLocation();
@@ -11,7 +11,7 @@ export default function RootLayout() {
         <>
             <Header />
 
-            <div id="pagina" className={enContacto ? "sin-carrito" : ""}> //raliza un if else
+            <div id="pagina" className={enContacto ? "sin-carrito" : ""}>
                 <main className="contenido"> 
                     <Outlet />
                 </main>
@@ -19,7 +19,7 @@ export default function RootLayout() {
                 {!enContacto && (
                     <aside id="carrito">
                         <Carrito />
-                    </aside> //saca el carrito de contacto
+                    </aside>
                 )}
             </div>
 

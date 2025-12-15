@@ -19,6 +19,7 @@ function normalizeCategory(raw) {
     if (["bebidas frias", "bebidas frías"].includes(s)) return "Bebidas frías";
     if (["bebidas calientes", "en tazón", "en tazon"].includes(s)) return "Bebidas calientes";
     if (["budines", "budín", "budin"].includes(s)) return "Budines";
+
     return CATEGORIAS_ORDEN.find((c) => c.toLowerCase() === s) || raw || "Otros";
 }
 
@@ -28,6 +29,8 @@ export default function Inicio() {
     const [qInput, setQInput] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+
+
 
     useEffect(() => {
         (async () => {
@@ -52,19 +55,28 @@ export default function Inicio() {
         })();
     }, []);
 
-    const productosFiltrados = useMemo(() => {
+
+   const productosFiltrados = useMemo(() => {
         const term = q.trim().toLowerCase();
+
+        // si no coincide los devolvemos todos
         if (!term) return productos;
 
+        // Filtra por coincidencia en nombre o categoría
         return productos.filter((p) =>
             p.nombre.toLowerCase().includes(term) ||
             (p.categoria || "").toLowerCase().includes(term)
         );
-    }, [productos, q]);
+    }, [productos, q]); 
 
+
+
+
+    //agrupa por categorias filtradas
     const porCategoria = useMemo(() => {
         const map = new Map();
 
+        // categorías dentro del Map
         for (const p of productosFiltrados) {
             const cat = p.categoria || "Otros";
             if (!map.has(cat)) map.set(cat, []);
@@ -73,16 +85,20 @@ export default function Inicio() {
 
         const ordenadas = [];
 
+        // según orden
         for (const cat of CATEGORIAS_ORDEN) {
             if (map.has(cat)) ordenadas.push([cat, map.get(cat)]);
         }
 
+        // Agrega categorías sin orden
         for (const [cat, items] of map) {
             if (!CATEGORIAS_ORDEN.includes(cat)) ordenadas.push([cat, items]);
         }
 
         return ordenadas;
     }, [productosFiltrados]);
+
+
 
     if (loading) return <p role="status">Cargando catálogo…</p>;
     if (error) return <p role="alert">{error}</p>;

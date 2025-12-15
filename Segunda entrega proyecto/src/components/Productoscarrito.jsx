@@ -1,39 +1,54 @@
 import { useCart } from "@/context/Carritocontext.jsx";
 
+// listado productos
 export default function Productoscarrito({ productos }) {
+
+    // función addItem del contexto
     const { addItem } = useCart();
 
+    
     if (!productos?.length) return <p>No hay productos.</p>;
 
-        return (
-            <div className="grid-prod">
-                {productos.map((p) => (
-                    <article className="producto" key={p.id}>
-                        <img src={p.img} alt={p.nombre} width="140" height="140" />
+    return (
+        <div className="grid-prod">
 
-                        <div>
-                            <h3>{p.nombre}</h3>
+            {/* Recorremos la lista de productos y mostramos cada uno */}
+            {productos.map((p) => (
+                <article className="producto" key={p.id}>
 
-                            {/* 👇 DESCRIPCIÓN AGREGADA  */}
-                            <p className="descripcion">{p.descripcion}</p>
+                    {/* Imagen del producto */}
+                    <img src={p.img} alt={p.nombre} width="140" height="140" />
 
-                            <p className="precio">$ {p.precio.toLocaleString("es-AR")}</p>
-                            <small>{p.categoria}</small><br />
+                    <div>
+                        {/* Nombre */}
+                        <h3>{p.nombre}</h3>
 
-                            <button
-                                className="agregar"
-                                onClick={() =>
-                                    addItem({ id: p.id, nombre: p.nombre, precio: p.precio })
-                                }
-                            >
-                                Agregar
-                            </button>
-                        </div>
-                    </article>
-                ))}
-            </div>
-        );
+                        {/* Descripción agregada */}
+                        <p className="descripcion">{p.descripcion}</p>
 
+                        {/* Precio formateado */}
+                        <p className="precio">$ {p.precio.toLocaleString("es-AR")}</p>
+
+                        {/* Categoría */}
+                        <small>{p.categoria}</small><br />
+
+                        {/* Botón que agrega el producto al carrito */}
+                        <button
+                            className="agregar"
+                            onClick={() =>
+                                addItem({
+                                    id: p.id,
+                                    nombre: p.nombre,
+                                    precio: p.precio
+                                })
+                            }
+                        >
+                            Agregar
+                        </button>
+                    </div>
+
+                </article>
+            ))}
+        </div>
+    );
 }
-
-

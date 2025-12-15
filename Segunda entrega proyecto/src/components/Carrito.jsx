@@ -1,28 +1,44 @@
 import { useCart } from "@/context/Carritocontext.jsx";
-import { useState, useMemo } from "react";
+import { useState, useMemo } from "react"; // maneja imputs, calcula errores
 
 export default function Carrito() {
+
+    // sacamos contexto del carrito
     const { items, total, removeItem, clear } = useCart();
+
+    // Estados del formulario
     const [nombre, setNombre] = useState("");
     const [mesa, setMesa] = useState("");
     const [pago, setPago] = useState("");
 
+    // Validaciones del formulario.
+    // cambia algo como nombre o mesa se recalcula
     const errors = useMemo(() => {
         const e = {};
-        if (nombre.trim().length < 2) e.nombre = "Ingresá tu nombre (mínimo 2 letras).";
-        if (!(Number(mesa) >= 1)) e.mesa = "Ingresá un número de mesa válido.";
-        if (!pago) e.pago = "Elegí un método de pago.";
-        if (!items.length) e.items = "Agregá al menos un producto.";
+
+        if (nombre.trim().length < 2)
+            e.nombre = "Ingresá tu nombre (mínimo 2 letras).";
+
+        if (!(Number(mesa) >= 1))
+            e.mesa = "Ingresá un número de mesa válido.";
+
+        if (!pago)
+            e.pago = "Elegí un método de pago.";
+
+        if (!items.length)
+            e.items = "Agregá al menos un producto.";
+
         return e;
     }, [nombre, mesa, pago, items]);
 
+    // envío del formulario
     const onSubmit = (e) => {
         e.preventDefault();
 
-        // Si hay errores, NO hace nada (igual que en el parcial 1)
+        // control de error
         if (Object.keys(errors).length) return;
 
-        // SOLO guarda pedido, sin mensajes ni navegación
+        // guadado de pedido en localStorage
         localStorage.setItem(
             "ultimoPedido",
             JSON.stringify({
@@ -34,7 +50,7 @@ export default function Carrito() {
             })
         );
 
-        alert("Pedido registrado correctamente."); // Esto imitaba el comportamiento viejo
+        alert("Pedido registrado correctamente.");
     };
 
     return (
@@ -45,17 +61,19 @@ export default function Carrito() {
                 <p id="carritovacio">Tu carrito está vacío.</p>
             ) : (
                 <>
+                    {/* Lista de productos */}
                     <ul id="productoscarrito">
                         {items.map((it) => (
                             <li key={it.id} className="cart-row">
                                 <span>{it.nombre} (x{it.cantidad})</span>
+
                                 <span className="cart-price">
                                     $ {(it.precio * it.cantidad).toLocaleString("es-AR")}
+                                    
+                                    {/* Botón para quitar producto */}
                                     <button
                                         className="btn-borrar"
                                         onClick={() => removeItem(it.id)}
-                                        aria-label={`Quitar ${it.nombre}`}
-                                        title="Quitar"
                                     >
                                         🗑
                                     </button>
@@ -67,6 +85,7 @@ export default function Carrito() {
                     <output className="cart-total">
                         Total: <strong id="total">$ {total.toLocaleString("es-AR")}</strong>
                     </output>
+
 
                     <div className="carrito-acciones">
                         <button id="vaciar" className="agregar" onClick={clear}>
@@ -113,6 +132,7 @@ export default function Carrito() {
                             <div className="err">{errors.pago || ""}</div>
                         </label>
 
+                        {/* Error si no hay productos */}
                         {errors.items && <div className="err">{errors.items}</div>}
 
                         <button type="submit" className="agregar">
