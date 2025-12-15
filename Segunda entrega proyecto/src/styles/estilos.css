@@ -231,3 +231,7 @@ output {
 .navlink.active {
     filter: brightness(0.95);
 }
+
+.hidden {
+    display: none;
+}

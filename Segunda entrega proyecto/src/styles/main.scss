@@ -67,3 +67,15 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ari
   .producto { grid-template-columns: 1fr; }
   .producto img { width: 100%; height: 180px; }
 }
+
+.logo-contacto {
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.hero {
+    background-image: url("/fotodefondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

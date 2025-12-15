@@ -13,7 +13,7 @@ export default function Contacto() {
                 alt="Logo Café 505"
                 width="120"
                 height="120"
-                style={{ borderRadius: 10, marginTop: 8 }}
+                className="logo-contacto"
             />
         </section>
     );

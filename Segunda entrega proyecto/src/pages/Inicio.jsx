@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import Productoscarrito from "@/components/Productoscarrito.jsx";
-import fotoDeFondo from "@/assets/fotoDeFondo.jpg";
 
 const CATEGORIAS_ORDEN = [
     "Bebidas frías",
@@ -30,8 +29,6 @@ export default function Inicio() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-
-
     useEffect(() => {
         (async () => {
             try {
@@ -55,28 +52,20 @@ export default function Inicio() {
         })();
     }, []);
 
-
-   const productosFiltrados = useMemo(() => {
+    const productosFiltrados = useMemo(() => {
         const term = q.trim().toLowerCase();
-
-        // si no coincide los devolvemos todos
         if (!term) return productos;
 
-        // Filtra por coincidencia en nombre o categoría
-        return productos.filter((p) =>
-            p.nombre.toLowerCase().includes(term) ||
-            (p.categoria || "").toLowerCase().includes(term)
+        return productos.filter(
+            (p) =>
+                p.nombre.toLowerCase().includes(term) ||
+                (p.categoria || "").toLowerCase().includes(term)
         );
-    }, [productos, q]); 
+    }, [productos, q]);
 
-
-
-
-    //agrupa por categorias filtradas
     const porCategoria = useMemo(() => {
         const map = new Map();
 
-        // categorías dentro del Map
         for (const p of productosFiltrados) {
             const cat = p.categoria || "Otros";
             if (!map.has(cat)) map.set(cat, []);
@@ -85,12 +74,10 @@ export default function Inicio() {
 
         const ordenadas = [];
 
-        // según orden
         for (const cat of CATEGORIAS_ORDEN) {
             if (map.has(cat)) ordenadas.push([cat, map.get(cat)]);
         }
 
-        // Agrega categorías sin orden
         for (const [cat, items] of map) {
             if (!CATEGORIAS_ORDEN.includes(cat)) ordenadas.push([cat, items]);
         }
@@ -98,18 +85,12 @@ export default function Inicio() {
         return ordenadas;
     }, [productosFiltrados]);
 
-
-
     if (loading) return <p role="status">Cargando catálogo…</p>;
     if (error) return <p role="alert">{error}</p>;
 
     return (
         <>
-            <div
-                className="hero"
-                style={{ backgroundImage: "url('/fotodefondo.jpg')" }}
-            ></div>
-
+            <div className="hero"></div>
 
             <section className="seccion">
                 <h2>Buscar producto</h2>
