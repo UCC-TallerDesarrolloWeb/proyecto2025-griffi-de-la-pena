@@ -1,4 +1,5 @@
-import { useCart } from "@/context/Carritocontext.jsx";
+import { useCart } from "@/context/useCart";
+
 
 // listado productos
 export default function Productoscarrito({ productos }) {

@@ -1,4 +1,2 @@
-import { useContext } from "react";
-import { CartCtx } from "./Carritocontext";
-
-export const useCart = () => useContext(CartCtx);
+// Reexporta el hook desde el archivo de contexto central
+export { useCart } from "./cart-context";

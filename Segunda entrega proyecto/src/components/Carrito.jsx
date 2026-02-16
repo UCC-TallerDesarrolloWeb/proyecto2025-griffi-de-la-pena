@@ -1,4 +1,4 @@
-import { useCart } from "@/context/Carritocontext.jsx";
+import { useCart } from "@/context/cart-context.js";
 import { useState, useMemo } from "react"; // maneja imputs, calcula errores
 
 export default function Carrito() {
@@ -51,6 +51,12 @@ export default function Carrito() {
         );
 
         alert("Pedido registrado correctamente.");
+
+        // limpiar carrito y formulario después de confirmar
+        clear();
+        setNombre("");
+        setMesa("");
+        setPago("");
     };
 
     return (

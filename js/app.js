@@ -142,12 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Guardamos referencias a inputs del formulario de pedido
-    const formPedido = document.getElementById("form-pedido");
-    const inpNombre = document.getElementById("nombre");
-    const inpMesa = document.getElementById("mesa");
-    const selPago = document.getElementById("pago");
-
     // Si hay carrito guardado en el navegador, lo recuperamos
     const guardado = localStorage.getItem("carrito");
     if (guardado) {
