@@ -100,7 +100,14 @@ export default function Inicio() {
                         id="buscar"
                         type="text"
                         value={qInput}
-                        onChange={(e) => setQInput(e.target.value)}
+                        onChange={(e) => {
+                            const nuevoValor = e.target.value;
+                            setQInput(nuevoValor);
+                            // Si se borra el texto, reiniciar la búsqueda
+                            if (!nuevoValor.trim()) {
+                                setQ("");
+                            }
+                        }}
                         placeholder="Buscar por nombre o categoría"
                     />
 
