@@ -32,7 +32,8 @@ export default function Inicio() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch("http://localhost:3001/products");
+                // Leemos el catálogo desde el mock local en /public/api/products.json
+                const res = await fetch(`${import.meta.env.BASE_URL}api/products.json`);
                 if (!res.ok) throw new Error("HTTP " + res.status);
 
                 const data = await res.json();

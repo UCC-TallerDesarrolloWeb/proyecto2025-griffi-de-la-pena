@@ -71,9 +71,8 @@ img {
 /* Portada */
 .portada {
   height: 260px;
-  background-image: url("../imagenes/fotodefondo.jpg");
-  background-size: cover;
-  background-position: center;
+  /* Fondo degradado suave en lugar de imagen faltante */
+  background: linear-gradient(135deg, #f6f3ee, #efe7dd);
   border-block: 1px solid #e8e4dd;
 }
 
@@ -235,3 +234,4 @@ output {
 .hidden {
     display: none;
 }
+
